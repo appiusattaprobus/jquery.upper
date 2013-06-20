@@ -11,7 +11,7 @@
   
 	var sets = $.extend( {
 	  'after'	 : 100,
-	  'speed'	 : 800,
+	  'time'	 : 800,
       	  'anchor'   	 : 'body,html'
         }, options);
 	
@@ -36,7 +36,7 @@
 		
 		$('body,html').animate({
 			scrollTop: this_top
-		}, sets['speed']);
+		}, sets['time']);
 		
 		return false;
 	});
