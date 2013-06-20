@@ -18,7 +18,7 @@
 	var $anchor	 = $(sets['anchor']);
   
 	var $this	 = $(this);
-	var this_top = $anchor.offset().top
+	var this_top 	 = $anchor.offset().top
 	
 	$this.css('display','none');
 	
