@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<!-- BEGIN head -->
+<head>
+	
+	<!-- Meta Tags -->
+	<meta http-equiv="" content="" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="jquery.upper.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("a.top").upper();
+			$("a.some-id").upper({
+				speed	: 1000,
+				anchor	: '.some_id'
+			});
+		});
+	</script>
+	
+	<style type="text/css">
+		body { height:3000px; }
+		.some_id { margin-top:500px; }
+		.back { position:fixed; bottom:20px; }
+		.back a { margin:5px; }
+	</style>
+	
+<!-- END head -->
+</head>
+
+<!-- BEGIN body -->
+<body>
+
+	<p>TOP</p>
+	
+	<div class="some_id">SOME ID</div>
+	
+	<div class="back">
+		<a href="#" class='top'>BACK TOP</a>
+		<a href="#" class='some-id'>BACK SOME ID</a>
+	</div>
+	
+<!-- END body -->
+</body>
+</html>
