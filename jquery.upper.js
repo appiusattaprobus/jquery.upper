@@ -12,7 +12,7 @@
 	var sets = $.extend( {
 	  'after'	 : 100,
 	  'speed'	 : 800,
-      	  'anchor'   : 'body,html'
+      	  'anchor'   	 : 'body,html'
         }, options);
 	
 	var $anchor	 = $(sets['anchor']);
