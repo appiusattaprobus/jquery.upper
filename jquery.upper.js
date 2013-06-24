@@ -26,7 +26,7 @@
 	
 	if(!mobile) {
 	
-		var $anchor	 	= $(sets.anchor);
+		var $anchor	= $(sets.anchor);
 		var element_top	= $anchor.offset().top
 			
 		$(window).scroll(function(){
