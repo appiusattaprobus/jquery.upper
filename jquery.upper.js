@@ -1,5 +1,5 @@
 /*
- * jQuery upper Plugin 1.0
+ * jQuery upper Plugin 1.1
  * Nikita Ivanov <dr.ivanov@nxt.ru>
  * Copyright 2013
  * Free to use under the MIT license.
@@ -10,37 +10,46 @@
   $.fn.upper = function( options ){
   
 	var sets = $.extend( {
-	  'after'	 : 100,
-	  'time'	 : 800,
-      	  'anchor'   	 : 'body,html'
-        }, options);
+		before	: 10,		// margin before element 10px
+		after	: 100,		// show "upper element" after scroll 100px
+		timeUp	: 800,		// time to scroll up
+		fadeIn  : 400,
+		fadeOut : 400,
+		anchor	: 'body'	// anchor element
+	}, options);
 	
-	var $anchor	 = $(sets['anchor']);
-  
-	var $this	 = $(this);
-	var this_top 	 = $anchor.offset().top
-	
+	var $this = $(this);
 	$this.css('display','none');
 	
-	$(window).scroll(function(){
-		
-		if ( $(window).scrollTop() > this_top + sets['after'] ) {
-			$this.fadeIn();
-		} else {
-			$this.fadeOut();
-		}
-		
-	});
+	// Detect if mobile device, which doesn't support fixed position
+	var mobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
 	
-	$this.click(function(){
-		
-		$('body,html').animate({
-			scrollTop: this_top
-		}, sets['time']);
-		
-		return false;
-	});
+	if(!mobile) {
 	
+		var $anchor	 	= $(sets.anchor);
+		var element_top	= $anchor.offset().top
+			
+		$(window).scroll(function(){
+			
+			if ( $(window).scrollTop() > element_top + sets.after ) {
+				$this.fadeIn( sets.fadeIn );
+			} else {
+				$this.fadeOut( sets.fadeOut );
+			}
+			
+		});
+		
+		$this.click(function(){
+			
+			$('html, body').animate({
+				scrollTop: element_top - sets.before
+			}, sets.timeUp );
+			
+			return false;
+		});
+		
+	}
+
     return this;
   };
 })(jQuery);
